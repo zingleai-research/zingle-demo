@@ -1,6 +1,7 @@
 import {
     AppWindow,
     BookBookmark,
+    FlowArrow,
     Gear,
     Globe,
     Plugs,
@@ -208,6 +209,21 @@ export const NavSidebar = () => {
                         key: 'analytics',
                         isHidden: !showAnalytics,
                         link: PageRoutes.ANALYTICS,
+                    },
+                ],
+            },
+            {
+                type: NavBarMenuItemTypes.Group,
+                key: 'businessProcess',
+                title: 'Business Process',
+                items: [
+                    {
+                        type: NavBarMenuItemTypes.Item,
+                        title: 'Process Dashboard',
+                        key: 'processDashboard',
+                        icon: <FlowArrow />,
+                        selectedIcon: <FlowArrow weight="fill" />,
+                        link: PageRoutes.BUSINESS_PROCESS,
                     },
                 ],
             },

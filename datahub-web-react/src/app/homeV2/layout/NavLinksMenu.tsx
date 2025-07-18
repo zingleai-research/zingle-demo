@@ -188,6 +188,13 @@ export function NavLinksMenu(props: Props) {
             isHidden: !showIngestion,
         },
         {
+            icon: GovernMenuIcon, // Using GovernMenuIcon as placeholder for Business Process
+            title: 'Business Process',
+            description: 'Manage and monitor business processes',
+            link: PageRoutes.BUSINESS_PROCESS,
+            isHidden: false,
+        },
+        {
             icon: SettingsMenuIcon,
             title: 'Settings',
             description: 'Manage your account and preferences',
