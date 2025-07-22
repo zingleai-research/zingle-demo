@@ -1,6 +1,7 @@
 import {
     AppWindow,
     BookBookmark,
+    Export,
     FlowArrow,
     Gear,
     Globe,
@@ -12,6 +13,7 @@ import {
     TextColumns,
     TrendUp,
     UserCircle,
+    ChatText,
 } from '@phosphor-icons/react';
 import React, { useContext, useEffect } from 'react';
 import styled, { useTheme } from 'styled-components';
@@ -175,12 +177,13 @@ export const NavSidebar = () => {
                         selectedIcon: <Globe weight="fill" />,
                         link: PageRoutes.DOMAINS,
                         additionalLinksForPathMatching: [`/${entityRegistry.getPathName(EntityType.Domain)}/:urn`],
+                        isHidden: true,
                     },
                     {
                         type: NavBarMenuItemTypes.Item,
                         title: 'Structured Properties',
                         key: 'structuredProperties',
-                        isHidden: !showStructuredProperties,
+                        isHidden: true,
                         icon: <TextColumns />,
                         selectedIcon: <TextColumns weight="fill" />,
                         link: PageRoutes.STRUCTURED_PROPERTIES,
@@ -210,6 +213,14 @@ export const NavSidebar = () => {
                         isHidden: !showAnalytics,
                         link: PageRoutes.ANALYTICS,
                     },
+                    {
+                        type: NavBarMenuItemTypes.Item,
+                        title: 'Export Destination',
+                        key: 'exportDestination',
+                        icon: <Export />,
+                        selectedIcon: <Export weight="fill" />,
+                        link: PageRoutes.METADATA_EXPORT,
+                    },
                 ],
             },
             {
@@ -227,6 +238,22 @@ export const NavSidebar = () => {
                     },
                 ],
             },
+            {
+                type: NavBarMenuItemTypes.Group,
+                key: 'analystAI',
+                title: 'Analyst AI',
+                items: [
+                    {
+                        type: NavBarMenuItemTypes.Item,
+                        title: 'Analyst AI',
+                        key: 'analystAIDashboard',
+                        icon: <ChatText />,
+                        selectedIcon: <ChatText weight="fill" />,
+                        link: PageRoutes.ANALYST_AI,
+                    },
+                ],
+            },
+
             {
                 type: NavBarMenuItemTypes.Custom,
                 key: 'spacer',

@@ -70,15 +70,21 @@ export const SearchListInsightCard = ({ id, title, icon, tip, query, types, filt
     const [loaded, setLoaded] = useState(false);
     const { localState } = useUserContext();
     const { selectedViewUrn } = localState;
-    const { assets, loading } = useGetSearchAssets(types, query, filters, sort, selectedViewUrn);
+    const { assets, loading, error } = useGetSearchAssets(types, query, filters, sort, selectedViewUrn);
     const [showModal, setShowModal] = useState(false);
     const { isUserInitializing } = useContext(OnboardingContext);
 
     useEffect(() => {
-        if (!loading && assets && !loaded) {
+        let isMounted = true;
+        
+        if (!loading && assets && !loaded && isMounted && !error) {
             setLoaded(true);
         }
-    }, [loaded, loading, assets, setLoaded]);
+        
+        return () => {
+            isMounted = false;
+        };
+    }, [loaded, loading, assets, error, setLoaded]);
 
     // Register the insight module with parent component.
     const isPresent = useMemo(() => (loaded ? !!assets?.length : undefined), [assets, loaded]);
@@ -86,6 +92,10 @@ export const SearchListInsightCard = ({ id, title, icon, tip, query, types, filt
 
     if (loading || isUserInitializing) {
         return <InsightCardSkeleton />;
+    }
+
+    if (error) {
+        return null;
     }
 
     if (!assets.length) {

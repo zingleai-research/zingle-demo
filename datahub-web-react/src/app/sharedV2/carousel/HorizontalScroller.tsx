@@ -55,12 +55,12 @@ const Wrapper = styled.div`
     }
 `;
 
-const StyledNavigateBeforeOutlinedIcon = styled(NavigateBeforeOutlinedIcon)<{ buttonSize: number }>`
-    font-size: ${(props) => props.buttonSize}px !important;
+const StyledNavigateBeforeOutlinedIcon = styled(NavigateBeforeOutlinedIcon)<{ $buttonSize: number }>`
+    font-size: ${(props) => props.$buttonSize}px !important;
 `;
 
-const StyledNavigateNextOutlinedIcon = styled(NavigateNextOutlinedIcon)<{ buttonSize: number }>`
-    font-size: ${(props) => props.buttonSize}px !important;
+const StyledNavigateNextOutlinedIcon = styled(NavigateNextOutlinedIcon)<{ $buttonSize: number }>`
+    font-size: ${(props) => props.$buttonSize}px !important;
 `;
 
 type Props = {
@@ -139,7 +139,7 @@ const HorizontalScroller: React.FC<Props> = ({
                     offset={scrollButtonOffset}
                     left
                 >
-                    <StyledNavigateBeforeOutlinedIcon buttonSize={scrollButtonSize} />
+                    <StyledNavigateBeforeOutlinedIcon $buttonSize={scrollButtonSize} />
                 </ScrollButton>
             )}
             <ScrollContainerWrapper ref={contentRef} className={className}>
@@ -153,7 +153,7 @@ const HorizontalScroller: React.FC<Props> = ({
                     offset={scrollButtonOffset}
                     right
                 >
-                    <StyledNavigateNextOutlinedIcon buttonSize={scrollButtonSize} />
+                    <StyledNavigateNextOutlinedIcon $buttonSize={scrollButtonSize} />
                 </ScrollButton>
             )}
         </Wrapper>

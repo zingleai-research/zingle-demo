@@ -50,7 +50,7 @@ const SkeletonButton = styled(Skeleton.Button)`
     }
 `;
 
-const AutoCompleteContainer = styled.div<{ viewsEnabled?: boolean; $isShowNavBarRedesign?: boolean }>`
+const AutoCompleteContainer = styled.div<{ $viewsEnabled?: boolean; $isShowNavBarRedesign?: boolean }>`
     padding: 0 30px;
     align-items: center;
     border: ${(props) => (props.$isShowNavBarRedesign ? `2px solid ${colors.gray[100]}` : '2px solid transparent')};
@@ -59,7 +59,7 @@ const AutoCompleteContainer = styled.div<{ viewsEnabled?: boolean; $isShowNavBar
     transition: border-color 0.3s ease;
 
     ${(props) =>
-        props.viewsEnabled &&
+        props.$viewsEnabled &&
         `
         border-radius: 8px;
         &:focus-within {
@@ -73,7 +73,7 @@ const AutoCompleteContainer = styled.div<{ viewsEnabled?: boolean; $isShowNavBar
 const StyledSearchBar = styled(Input)<{
     $textColor?: string;
     $placeholderColor?: string;
-    viewsEnabled?: boolean;
+    $viewsEnabled?: boolean;
     $isShowNavBarRedesign?: boolean;
 }>`
     &&& {
@@ -85,7 +85,7 @@ const StyledSearchBar = styled(Input)<{
         border: 2px solid transparent;
         padding-right: 2.5px;
         ${(props) =>
-            !props.viewsEnabled &&
+            !props.$viewsEnabled &&
             `
         &:focus-within {
             border-color: ${props.theme.styles['primary-color']};
@@ -405,7 +405,7 @@ export const SearchBar = ({
                 </SkeletonContainer>
             ) : (
                 <AutoCompleteContainer
-                    viewsEnabled={viewsEnabled}
+                    $viewsEnabled={viewsEnabled}
                     $isShowNavBarRedesign={isShowNavBarRedesign}
                     id={id}
                     style={viewsEnabled ? viewsEnabledStyle : style}
@@ -485,7 +485,7 @@ export const SearchBar = ({
                             data-testid="search-input"
                             onFocus={handleFocus}
                             onBlur={handleBlur}
-                            viewsEnabled={viewsEnabled}
+                            $viewsEnabled={viewsEnabled}
                             $isShowNavBarRedesign={isShowNavBarRedesign}
                             allowClear={(isFocused && { clearIcon: <ClearIcon /> }) || false}
                             prefix={

@@ -37,6 +37,8 @@ export enum PageRoutes {
     MANAGE_TAGS = '/tags',
     MANAGE_APPLICATIONS = '/applications',
     BUSINESS_PROCESS = '/business-process',
+    METADATA_EXPORT = '/metadata-export',
+    ANALYST_AI = '/analyst-ai',
 }
 
 export enum HelpLinkRoutes {

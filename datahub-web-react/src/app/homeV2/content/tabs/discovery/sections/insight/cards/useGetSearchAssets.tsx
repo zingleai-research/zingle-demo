@@ -28,7 +28,7 @@ export const useGetSearchAssets = (
     sort?: SortCriterion,
     viewUrn?: string | null,
 ): any => {
-    const { data, loading } = useGetSearchResultsForMultipleQuery({
+    const { data, loading, error } = useGetSearchResultsForMultipleQuery({
         variables: {
             input: {
                 types: types || [],
@@ -48,6 +48,8 @@ export const useGetSearchAssets = (
             },
         },
         fetchPolicy: 'cache-first',
+        errorPolicy: 'all',
+        notifyOnNetworkStatusChange: false,
     });
 
     const showSeparateSiblings = useIsShowSeparateSiblingsEnabled();
@@ -58,5 +60,5 @@ export const useGetSearchAssets = (
 
     const assets = searchResults?.filter((result) => result.entity).map((result) => result.entity) || [];
 
-    return { assets, loading };
+    return { assets, loading, error };
 };

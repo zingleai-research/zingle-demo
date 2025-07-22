@@ -11,6 +11,7 @@ import { SignUp } from '@app/auth/SignUp';
 import { isLoggedInVar } from '@app/auth/checkAuthStatus';
 import { NoPageFound } from '@app/shared/NoPageFound';
 import { PageRoutes } from '@conf/Global';
+import { AgenticChatPage } from './agenticChat';
 
 const ProtectedRoute = ({
     isLoggedIn,

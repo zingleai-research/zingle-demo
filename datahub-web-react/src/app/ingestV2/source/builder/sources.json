@@ -348,5 +348,45 @@
         "displayName": "Hex",
         "docsUrl": "https://docs.datahub.com/docs/generated/ingestion/sources/hex/",
         "recipe": "source:\n  type: hex\n  config:\n    workspace_name: # Your Hex Workspace name\n     token: # Your PAT or Workspace token"
+    },
+    {
+        "urn": "urn:li:dataPlatform:salesforce",
+        "name": "salesforce",
+        "displayName": "Salesforce",
+        "description": "Import Objects, Fields, Reports, Dashboards, and data lineage from Salesforce.",
+        "docsUrl": "https://docs.datahub.com/docs/generated/ingestion/sources/salesforce/",
+        "recipe": "source:\n  type: salesforce\n  config:\n    # Coordinates\n    instance_url: # Your Salesforce instance URL, e.g. https://yourcompany.my.salesforce.com\n    \n    # Credentials\n    # Add secret in Secrets Tab with relevant names for each variable\n    username: null # Your Salesforce username\n    password: null # Your Salesforce password\n    security_token: null # Your Salesforce security token\n    \n    # Options\n    include_deleted: false\n    include_archived: false\n    \n    # Optional - filter for specific objects\n    # object_pattern:\n    #   allow:\n    #     - Account\n    #     - Contact\n    #     - Opportunity"
+    },
+    {
+        "urn": "urn:li:dataPlatform:amplitude",
+        "name": "amplitude",
+        "displayName": "Amplitude",
+        "description": "Import Events, User Properties, and Analytics data from Amplitude.",
+        "docsUrl": "https://docs.datahub.com/docs/generated/ingestion/sources/amplitude/",
+        "recipe": "source:\n  type: amplitude\n  config:\n    # Coordinates\n    api_key: # Your Amplitude API Key\n    secret_key: # Your Amplitude Secret Key\n    \n    # Options\n    start_date: # Start date for data ingestion (YYYY-MM-DD)\n    end_date: # End date for data ingestion (YYYY-MM-DD)\n    \n    # Optional - filter for specific events\n    # event_pattern:\n    #   allow:\n    #     - user_login\n    #     - page_view"
+    },
+    {
+        "urn": "urn:li:dataPlatform:github",
+        "name": "github",
+        "displayName": "GitHub",
+        "description": "Import Repositories, Commits, Pull Requests, Issues, and code lineage from GitHub.",
+        "docsUrl": "https://docs.datahub.com/docs/generated/ingestion/sources/github/",
+        "recipe": "source:\n  type: github\n  config:\n    # Coordinates\n    repo: # Repository name in format 'owner/repo', e.g. 'datahub-project/datahub'\n    \n    # Credentials\n    # Add secret in Secrets Tab with relevant names for each variable\n    access_token: null # Your GitHub Personal Access Token\n    \n    # Options\n    include_commits: true\n    include_pull_requests: true\n    include_issues: true\n    \n    # Optional - filter for specific file types\n    # file_pattern:\n    #   allow:\n    #     - '*.py'\n    #     - '*.js'\n    #     - '*.sql'"
+    },
+    {
+        "urn": "urn:li:dataPlatform:confluence",
+        "name": "confluence",
+        "displayName": "Confluence",
+        "description": "Import Pages, Spaces, Attachments, and documentation lineage from Confluence.",
+        "docsUrl": "https://docs.datahub.com/docs/generated/ingestion/sources/confluence/",
+        "recipe": "source:\n  type: confluence\n  config:\n    # Coordinates\n    base_url: # Your Confluence instance URL, e.g. https://yourcompany.atlassian.net\n    \n    # Credentials\n    # Add secret in Secrets Tab with relevant names for each variable\n    username: null # Your Confluence username or email\n    api_token: null # Your Confluence API token\n    \n    # Options\n    include_attachments: true\n    include_comments: true\n    \n    # Optional - filter for specific spaces\n    # space_pattern:\n    #   allow:\n    #     - 'TEAM'\n    #     - 'DOCS'"
+    },
+    {
+        "urn": "urn:li:dataPlatform:upload-documents",
+        "name": "upload-documents",
+        "displayName": "Upload Documents",
+        "description": "Upload and import metadata from various document formats including PDF, Word, Excel, and more.",
+        "docsUrl": "https://docs.datahub.com/docs/generated/ingestion/sources/upload-documents/",
+        "recipe": "source:\n  type: upload-documents\n  config:\n    # File upload configuration\n    supported_formats:\n      - pdf\n      - docx\n      - xlsx\n      - csv\n      - json\n      - yaml\n    \n    # Processing options\n    extract_text: true\n    extract_metadata: true\n    \n    # Optional - file size limits\n    max_file_size_mb: 50\n    \n    # Optional - allowed file patterns\n    # file_pattern:\n    #   allow:\n    #     - '*.pdf'\n    #     - '*.docx'"
     }
 ]
