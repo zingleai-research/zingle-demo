@@ -108,7 +108,38 @@ export const SearchRoutes = (): JSX.Element => {
                         render={() => (isThemeV2 ? <DomainRoutesV2 /> : <DomainRoutes />)}
                     />
                 )}
+                {!isNestedDomainsEnabled && (
+                    <Route
+                        path={PageRoutes.DOMAINS}
+                        render={() => (isThemeV2 ? <ManageDomainsPageV2 /> : <ManageDomainsPage />)}
+                    />
+                )}
+
+                {!showIngestV2 && <Route path={PageRoutes.INGESTION} render={() => <ManageIngestionPage />} />}
+                {showIngestV2 && <Route path={PageRoutes.INGESTION} render={() => <ManageIngestionPageV2 />} />}
+
+                <Route path={PageRoutes.SETTINGS} render={() => (isThemeV2 ? <SettingsPageV2 /> : <SettingsPage />)} />
+                <Route
+                    path={`${PageRoutes.GLOSSARY}*`}
+                    render={() => (isThemeV2 ? <GlossaryRoutesV2 /> : <GlossaryRoutes />)}
+                />
+                {showStructuredProperties && (
+                    <Route path={PageRoutes.STRUCTURED_PROPERTIES} render={() => <StructuredProperties />} />
+                )}
+                <Route
+                    path={PageRoutes.BUSINESS_ATTRIBUTE}
+                    render={() => {
+                        if (!appConfigContextLoaded) {
+                            return null;
+                        }
+                        if (businessAttributesFlag) {
+                            return <BusinessAttributes />;
+                        }
+                        return <NoPageFound />;
+                    }}
+                />
+                {me.loaded && loaded && <Route component={NoPageFound} />}
             </Switch>
         </FinalSearchablePage>
-    );
+    ); 
 };

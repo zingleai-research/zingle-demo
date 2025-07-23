@@ -1,0 +1,14 @@
+diff --git a/datahub-web-react/src/conf/Global.ts b/datahub-web-react/src/conf/Global.ts
+index 8eabfebbe..b3d4f6973 100644
+--- a/datahub-web-react/src/conf/Global.ts
++++ b/datahub-web-react/src/conf/Global.ts
+@@ -36,6 +36,9 @@ export enum PageRoutes {
+     DATA_PRODUCTS = '/search?filter__entityType___false___EQUAL___0=DATA_PRODUCT&page=1&query=%2A&unionType=0',
+     MANAGE_TAGS = '/tags',
+     MANAGE_APPLICATIONS = '/applications',
++    BUSINESS_PROCESS = '/business-process',
++    METADATA_EXPORT = '/metadata-export',
++    ANALYST_AI = '/analyst-ai',
+ }
+ 
+ export enum HelpLinkRoutes {

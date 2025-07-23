@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
-import { Typography, Card, Steps, Tag, Button, Divider, Badge, Tabs, PlusOutlined, Modal } from 'antd';
+import { Typography, Card, Steps, Tag, Button, Divider, Badge, Tabs, Modal } from 'antd';
 import ReactFlow, { 
     Background, 
     BackgroundVariant, 
@@ -44,6 +44,7 @@ import {
     UserOutlined as UserIcon,
     CheckCircleTwoTone,
     WarningTwoTone,
+    PlusOutlined,
 } from '@ant-design/icons';
 import { Input, Tooltip, Alert } from 'antd';
 

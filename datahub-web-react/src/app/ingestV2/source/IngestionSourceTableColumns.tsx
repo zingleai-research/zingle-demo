@@ -16,7 +16,7 @@ import { capitalizeMonthsAndDays, formatTimezone } from '@app/ingestV2/source/ut
 import { HoverEntityTooltip } from '@app/recommendations/renderer/component/HoverEntityTooltip';
 import { capitalizeFirstLetter, capitalizeFirstLetterOnly } from '@app/shared/textUtil';
 
-import { EntityType, Owner } from '@types';
+import { Owner } from '@types';
 
 const PreviewImage = styled(Image)`
     max-height: 20px;
@@ -179,7 +179,7 @@ export function OwnerColumn({ owners, entityRegistry }: { owners: Owner[]; entit
                             name={entityRegistry.getDisplayName(singleOwner.type, singleOwner)}
                             imageUrl={singleOwner.editableProperties?.pictureLink}
                             showInPill
-                            isGroup={singleOwner.type === EntityType.CorpGroup}
+                            type={singleOwner.type}
                         />
                     </Link>
                 </HoverEntityTooltip>

@@ -27,6 +27,7 @@ export enum IngestionSourceBuilderStepTitles {
     SELECT_TEMPLATE = 'Choose Data Source',
     DEFINE_RECIPE = 'Configure Connection',
     CREATE_SCHEDULE = 'Sync Schedule',
+    LINK_TABLES = 'Link Tables', // Changed from 'Select Tables' to 'Link Tables'
     NAME_SOURCE = 'Finish up',
 }
 
