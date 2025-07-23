@@ -3,12 +3,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { mapAvatarTypeToEntityType } from '@components/components/Avatar/utils';
-import { AvatarItemProps, AvatarType } from '@components/components/AvatarStack/types';
+import { AvatarItemProps } from '@components/components/AvatarStack/types';
 import { AvatarSizeOptions } from '@components/theme/config';
 
 import EntityRegistry from '@app/entityV2/EntityRegistry';
-import isPresent from '@app/utils/isPresent';
 
 const PillsContainer = styled.div`
     display: flex;
@@ -21,10 +19,10 @@ interface Props {
     entityRegistry: EntityRegistry;
     size?: AvatarSizeOptions;
     maxVisible?: number;
-    type?: AvatarType;
+    isGroup?: boolean;
 }
 
-const HoverSectionContent = ({ avatars, entityRegistry, size, maxVisible = 4, type }: Props) => {
+const HoverSectionContent = ({ avatars, entityRegistry, size, maxVisible = 4, isGroup }: Props) => {
     const [expanded, setExpanded] = useState(false);
 
     const visibleAvatars = expanded ? avatars : avatars.slice(0, maxVisible);
@@ -41,17 +39,15 @@ const HoverSectionContent = ({ avatars, entityRegistry, size, maxVisible = 4, ty
                             isOutlined
                             imageUrl={user.imageUrl}
                             name={user.name}
-                            type={type}
+                            isGroup={isGroup}
                         />
                     );
                     return (
                         <>
-                            {isPresent(user.type) && user.urn ? (
-                                <Link to={entityRegistry.getEntityUrl(mapAvatarTypeToEntityType(user.type), user.urn)}>
-                                    {userAvatar}
-                                </Link>
+                            {user.type && user.urn ? (
+                                <Link to={entityRegistry.getEntityUrl(user.type, user.urn)}>{userAvatar}</Link>
                             ) : (
-                                userAvatar
+                                { userAvatar }
                             )}
                         </>
                     );
