@@ -188,6 +188,21 @@ export function NavLinksMenu(props: Props) {
             isHidden: !showIngestion,
         },
         {
+            icon: GovernMenuIcon, // Using GovernMenuIcon as placeholder for Export Destination
+            title: 'Export Destination',
+            description: 'Manage metadata export connections',
+            link: PageRoutes.METADATA_EXPORT,
+            isHidden: false,
+        },
+        {
+            icon: GovernMenuIcon, // Using GovernMenuIcon as placeholder for Business Process
+            title: 'Business Process',
+            description: 'Manage and monitor business processes',
+            link: PageRoutes.BUSINESS_PROCESS,
+            isHidden: false,
+        },
+
+        {
             icon: SettingsMenuIcon,
             title: 'Settings',
             description: 'Manage your account and preferences',

@@ -25,6 +25,10 @@ import { SettingsPage } from '@app/settings/SettingsPage';
 import { SettingsPage as SettingsPageV2 } from '@app/settingsV2/SettingsPage';
 import { NoPageFound } from '@app/shared/NoPageFound';
 import { ManageTags } from '@app/tags/ManageTags';
+
+import { BusinessProcessPage } from '@app/businessProcess/BusinessProcessPage';
+import { DriverOnboardingPage } from '@app/businessProcess/DriverOnboardingPage';
+import { MetadataExportPage } from '@app/metadataExport/MetadataExportPage';
 import {
     useAppConfig,
     useBusinessAttributesFlag,
@@ -34,6 +38,7 @@ import {
 import { useEntityRegistry } from '@app/useEntityRegistry';
 import { useIsThemeV2 } from '@app/useIsThemeV2';
 import { PageRoutes } from '@conf/Global';
+import { AgentConversationPage } from './agenticChat/AgentConversationPage';
 
 /**
  * Container for all searchable page routes
@@ -86,6 +91,9 @@ export const SearchRoutes = (): JSX.Element => {
                 {showTags ? <Route path={PageRoutes.MANAGE_TAGS} render={() => <ManageTags />} /> : null}
                 <Route path={PageRoutes.MANAGE_APPLICATIONS} render={() => <ManageApplications />} />
                 <Route path={PageRoutes.ANALYTICS} render={() => <AnalyticsPage />} />
+                <Route path={`${PageRoutes.BUSINESS_PROCESS}/driver-onboarding`} render={() => <DriverOnboardingPage />} />
+                <Route path={PageRoutes.BUSINESS_PROCESS} render={() => <BusinessProcessPage />} />
+                <Route path={PageRoutes.METADATA_EXPORT} render={() => <MetadataExportPage />} />
                 <Route path={PageRoutes.POLICIES} render={() => <Redirect to="/settings/permissions/policies" />} />
                 <Route
                     path={PageRoutes.SETTINGS_POLICIES}
@@ -93,6 +101,7 @@ export const SearchRoutes = (): JSX.Element => {
                 />
                 <Route path={PageRoutes.PERMISSIONS} render={() => <Redirect to="/settings/permissions" />} />
                 <Route path={PageRoutes.IDENTITIES} render={() => <Redirect to="/settings/identities" />} />
+                <Route path={PageRoutes.ANALYST_AI} render={() => <AgentConversationPage />} />
                 {isNestedDomainsEnabled && (
                     <Route
                         path={`${PageRoutes.DOMAIN}*`}
@@ -132,5 +141,5 @@ export const SearchRoutes = (): JSX.Element => {
                 {me.loaded && loaded && <Route component={NoPageFound} />}
             </Switch>
         </FinalSearchablePage>
-    );
+    ); 
 };

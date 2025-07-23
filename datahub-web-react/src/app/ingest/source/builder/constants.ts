@@ -30,7 +30,6 @@ import oktaLogo from '@images/oktalogo.png';
 import oracleLogo from '@images/oraclelogo.png';
 import postgresLogo from '@images/postgreslogo.png';
 import powerbiLogo from '@images/powerbilogo.png';
-import presetLogo from '@images/presetlogo.svg';
 import qlikLogo from '@images/qliklogo.png';
 import redshiftLogo from '@images/redshiftlogo.png';
 import sacLogo from '@images/saclogo.svg';
@@ -41,6 +40,7 @@ import tableauLogo from '@images/tableaulogo.png';
 import trinoLogo from '@images/trinologo.png';
 import vertexAI from '@images/vertexai.png';
 import verticaLogo from '@images/verticalogo.png';
+import presetLogo from '@images/presetlogo.svg';
 
 export const ATHENA = 'athena';
 export const ATHENA_URN = `urn:li:dataPlatform:${ATHENA}`;
@@ -174,7 +174,6 @@ export const PLATFORM_URN_TO_LOGO = {
     [ORACLE_URN]: oracleLogo,
     [POSTGRES_URN]: postgresLogo,
     [POWER_BI_URN]: powerbiLogo,
-    [PRESET_URN]: presetLogo,
     [REDSHIFT_URN]: redshiftLogo,
     [SNOWFLAKE_URN]: snowflakeLogo,
     [TABLEAU_URN]: tableauLogo,

@@ -1,0 +1,58 @@
+[
+    {
+        "name": "unity-catalog",
+        "displayName": "Unity Catalog by Databricks",
+        "description": "Export metadata from Databricks Unity Catalog including tables, schemas, and lineage information.",
+        "urn": "urn:li:dataPlatform:unity-catalog",
+        "recipe": "source:\n  type: unity-catalog\n  config:\n    workspace_url: \"https://your-workspace.cloud.databricks.com\"\n    access_token: \"{{ ACCESS_TOKEN }}\"\n    catalog: \"your-catalog\"\n    schema: \"your-schema\"\nsink:\n  type: datahub-rest\n  config:\n    server: \"http://localhost:8080\""
+    },
+    {
+        "name": "semantic-view",
+        "displayName": "Semantic View by Snowflake",
+        "description": "Export semantic layer metadata and business intelligence views from Snowflake.",
+        "urn": "urn:li:dataPlatform:snowflake-semantic",
+        "recipe": "source:\n  type: snowflake-semantic\n  config:\n    host_port: \"your-account.snowflakecomputing.com:443\"\n    username: \"{{ USERNAME }}\"\n    password: \"{{ PASSWORD }}\"\n    database: \"your-database\"\n    warehouse: \"your-warehouse\"\nsink:\n  type: datahub-rest\n  config:\n    server: \"http://localhost:8080\""
+    },
+    {
+        "name": "aws-sagemaker",
+        "displayName": "AWS SageMaker",
+        "description": "Export machine learning models, experiments, and training metadata from AWS SageMaker.",
+        "urn": "urn:li:dataPlatform:aws-sagemaker",
+        "recipe": "source:\n  type: aws-sagemaker\n  config:\n    aws_access_key_id: \"{{ AWS_ACCESS_KEY_ID }}\"\n    aws_secret_access_key: \"{{ AWS_SECRET_ACCESS_KEY }}\"\n    aws_region: \"us-east-1\"\nsink:\n  type: datahub-rest\n  config:\n    server: \"http://localhost:8080\""
+    },
+    {
+        "name": "snowflake",
+        "displayName": "Snowflake",
+        "description": "Export comprehensive metadata including databases, schemas, tables, and usage statistics from Snowflake.",
+        "urn": "urn:li:dataPlatform:snowflake",
+        "recipe": "source:\n  type: snowflake\n  config:\n    host_port: \"your-account.snowflakecomputing.com:443\"\n    username: \"{{ USERNAME }}\"\n    password: \"{{ PASSWORD }}\"\n    database: \"your-database\"\n    warehouse: \"your-warehouse\"\nsink:\n  type: datahub-rest\n  config:\n    server: \"http://localhost:8080\""
+    },
+    {
+        "name": "bigquery",
+        "displayName": "Google BigQuery",
+        "description": "Export datasets, tables, views, and lineage information from Google BigQuery.",
+        "urn": "urn:li:dataPlatform:bigquery",
+        "recipe": "source:\n  type: bigquery\n  config:\n    project_id: \"your-project-id\"\n    key_path: \"path/to/service-account-key.json\"\nsink:\n  type: datahub-rest\n  config:\n    server: \"http://localhost:8080\""
+    },
+    {
+        "name": "redshift",
+        "displayName": "Amazon Redshift",
+        "description": "Export tables, views, databases, schemas, and lineage from Amazon Redshift.",
+        "urn": "urn:li:dataPlatform:redshift",
+        "recipe": "source:\n  type: redshift\n  config:\n    host: \"your-cluster.redshift.amazonaws.com\"\n    port: 5439\n    username: \"{{ USERNAME }}\"\n    password: \"{{ PASSWORD }}\"\n    database: \"your-database\"\nsink:\n  type: datahub-rest\n  config:\n    server: \"http://localhost:8080\""
+    },
+    {
+        "name": "tableau",
+        "displayName": "Tableau",
+        "description": "Export data sources, workbooks, worksheets, and dashboards from Tableau.",
+        "urn": "urn:li:dataPlatform:tableau",
+        "recipe": "source:\n  type: tableau\n  config:\n    server: \"https://your-tableau-server.com\"\n    username: \"{{ USERNAME }}\"\n    password: \"{{ PASSWORD }}\"\n    site: \"your-site\"\nsink:\n  type: datahub-rest\n  config:\n    server: \"http://localhost:8080\""
+    },
+    {
+        "name": "powerbi",
+        "displayName": "Power BI",
+        "description": "Export dashboards, tiles, datasets, and lineage from Microsoft Power BI.",
+        "urn": "urn:li:dataPlatform:powerbi",
+        "recipe": "source:\n  type: powerbi\n  config:\n    tenant_id: \"your-tenant-id\"\n    client_id: \"{{ CLIENT_ID }}\"\n    client_secret: \"{{ CLIENT_SECRET }}\"\n    workspace_id: \"your-workspace-id\"\nsink:\n  type: datahub-rest\n  config:\n    server: \"http://localhost:8080\""
+    }
+] 

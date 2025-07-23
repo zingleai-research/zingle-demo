@@ -5,7 +5,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components/macro';
 
-import { mapEntityTypeToAvatarType } from '@components/components/Avatar/utils';
 import AvatarStackWithHover from '@components/components/AvatarStack/AvatarStackWithHover';
 
 import EntityRegistry from '@app/entityV2/EntityRegistry';
@@ -158,7 +157,7 @@ export function OwnerColumn({ owners, entityRegistry }: { owners: Owner[]; entit
         return {
             name: entityRegistry.getDisplayName(owner.owner.type, owner.owner),
             imageUrl: owner.owner.editableProperties?.pictureLink,
-            type: mapEntityTypeToAvatarType(owner.owner.type),
+            type: owner.owner.type,
             urn: owner.owner.urn,
         };
     });
@@ -180,7 +179,7 @@ export function OwnerColumn({ owners, entityRegistry }: { owners: Owner[]; entit
                             name={entityRegistry.getDisplayName(singleOwner.type, singleOwner)}
                             imageUrl={singleOwner.editableProperties?.pictureLink}
                             showInPill
-                            type={mapEntityTypeToAvatarType(singleOwner.type)}
+                            type={singleOwner.type}
                         />
                     </Link>
                 </HoverEntityTooltip>

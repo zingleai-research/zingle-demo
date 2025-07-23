@@ -23,7 +23,8 @@ import possibleTypesResult from '@src/possibleTypes.generated';
 const httpLink = createHttpLink({ uri: '/api/v2/graphql' });
 
 const errorLink = onError((error) => {
-    const { networkError } = error;
+    const { networkError, graphQLErrors } = error;
+    
     if (networkError) {
         const serverError = networkError as ServerError;
         if (serverError.statusCode === ErrorCodes.Unauthorized) {
@@ -33,14 +34,15 @@ const errorLink = onError((error) => {
             window.location.replace(`${PageRoutes.AUTHENTICATE}?redirect_uri=${encodeURIComponent(currentPath)}`);
         }
     }
-    // Disabled behavior for now -> Components are expected to handle their errors.
-    // if (graphQLErrors && graphQLErrors.length) {
-    //     const firstError = graphQLErrors[0];
-    //     const { extensions } = firstError;
-    //     const errorCode = extensions && (extensions.code as number);
-    //     // Fallback in case the calling component does not handle.
-    //     message.error(`${firstError.message} (code ${errorCode})`, 3); // TODO: Decide if we want this back.
-    // }
+    
+    // Log errors for debugging but don't show to user
+    if (graphQLErrors && graphQLErrors.length) {
+        console.warn('GraphQL Errors:', graphQLErrors);
+    }
+    
+    if (networkError) {
+        console.warn('Network Error:', networkError);
+    }
 });
 
 const client = new ApolloClient({
