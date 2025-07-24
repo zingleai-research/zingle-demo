@@ -10,6 +10,8 @@ import {
     TextColumns,
     TrendUp,
     UserCircle,
+    FlowArrow,
+    Export,
 } from '@phosphor-icons/react';
 import React, { useContext, useEffect } from 'react';
 import styled, { useTheme } from 'styled-components';
@@ -36,8 +38,6 @@ import { useUpdateEducationStepsAllowList } from '@src/app/onboarding/useUpdateE
 import { useEntityRegistry } from '@src/app/useEntityRegistry';
 import { HelpLinkRoutes, PageRoutes } from '@src/conf/Global';
 import { EntityType } from '@src/types.generated';
-
-import AcrylIcon from '@images/acryl-light-mark.svg?react';
 
 const Container = styled.div`
     height: 100vh;
@@ -68,8 +68,6 @@ const CustomLogo = styled.img`
 const Spacer = styled.div`
     flex: 1;
 `;
-
-const DEFAULT_LOGO = '/assets/logos/acryl-dark-mark.svg';
 
 const MenuWrapper = styled.div`
     margin-top: 14px;
@@ -104,9 +102,7 @@ export const NavSidebar = () => {
     // Update education steps allow list
     useUpdateEducationStepsAllowList(!!showDataSources, HOME_PAGE_INGESTION_ID);
 
-    const customLogoUrl = appConfig.config.visualConfig.logoUrl;
-    const hasCustomLogo = customLogoUrl && customLogoUrl !== DEFAULT_LOGO;
-    const logoComponent = hasCustomLogo ? <CustomLogo alt="logo" src={customLogoUrl} /> : <AcrylIcon />;
+    const logoComponent = <CustomLogo alt="logo" src="/assets/logos/datahub-logo.png" />;
 
     const HelpContentMenuItems = themeConfig.content.menu.items.map((value) => ({
         title: value.label,
@@ -129,62 +125,93 @@ export const NavSidebar = () => {
                 onlyExactPathMapping: true,
             },
             {
+                type: NavBarMenuItemTypes.Item,
+                title: 'Business Processes',
+                key: 'businessProcesses',
+                icon: <FlowArrow />,
+                selectedIcon: <FlowArrow weight="fill" />,
+                link: '/business-process',
+            },
+            {
                 type: NavBarMenuItemTypes.Group,
-                key: 'govern',
                 title: 'Govern',
+                key: 'govern',
                 items: [
                     {
                         type: NavBarMenuItemTypes.Item,
                         title: 'Glossary',
-                        key: 'glossary',
                         icon: <BookBookmark />,
                         selectedIcon: <BookBookmark weight="fill" />,
-                        link: PageRoutes.GLOSSARY,
-                        additionalLinksForPathMatching: entityRegistry
-                            .getGlossaryEntities()
-                            .map((entity) => `/${entity.getPathName()}/:urn`),
+                        key: 'glossary',
+                        link: '/glossary',
                     },
                     {
                         type: NavBarMenuItemTypes.Item,
                         title: 'Tags',
-                        key: 'tag',
                         icon: <Tag />,
                         selectedIcon: <Tag weight="fill" />,
-                        link: PageRoutes.MANAGE_TAGS,
-                    },
-                    {
-                        type: NavBarMenuItemTypes.Item,
-                        title: 'Domains',
-                        key: 'domains',
-                        icon: <Globe />,
-                        selectedIcon: <Globe weight="fill" />,
-                        link: PageRoutes.DOMAINS,
-                        additionalLinksForPathMatching: [`/${entityRegistry.getPathName(EntityType.Domain)}/:urn`],
-                    },
-                    {
-                        type: NavBarMenuItemTypes.Item,
-                        title: 'Structured Properties',
-                        key: 'structuredProperties',
-                        isHidden: !showStructuredProperties,
-                        icon: <TextColumns />,
-                        selectedIcon: <TextColumns weight="fill" />,
-                        link: PageRoutes.STRUCTURED_PROPERTIES,
+                        key: 'tags',
+                        link: '/tags',
                     },
                 ],
             },
             {
                 type: NavBarMenuItemTypes.Group,
-                key: 'admin',
                 title: 'Admin',
+                key: 'admin',
                 items: [
                     {
                         type: NavBarMenuItemTypes.Item,
-                        title: 'Data Sources',
-                        key: 'dataSources',
-                        isHidden: !showDataSources,
+                        title: 'Users',
+                        icon: <UserCircle />,
+                        selectedIcon: <UserCircle weight="fill" />,
+                        key: 'users',
+                        link: '/users',
+                        isHidden: true,
+                    },
+                    {
+                        type: NavBarMenuItemTypes.Item,
+                        title: 'Groups',
+                        icon: <TextColumns />,
+                        selectedIcon: <TextColumns weight="fill" />,
+                        key: 'groups',
+                        link: '/groups',
+                        isHidden: true,
+                    },
+                    {
+                        type: NavBarMenuItemTypes.Item,
+                        title: 'Roles',
+                        icon: <Globe />,
+                        selectedIcon: <Globe weight="fill" />,
+                        key: 'roles',
+                        link: '/roles',
+                        isHidden: true,
+                    },
+                    {
+                        type: NavBarMenuItemTypes.Item,
+                        title: 'Domains',
                         icon: <Plugs />,
                         selectedIcon: <Plugs weight="fill" />,
-                        link: PageRoutes.INGESTION,
+                        key: 'domains',
+                        link: '/domains',
+                    },
+                    {
+                        type: NavBarMenuItemTypes.Item,
+                        title: 'Policies',
+                        icon: <TrendUp />,
+                        selectedIcon: <TrendUp weight="fill" />,
+                        key: 'policies',
+                        link: '/policies',
+                        isHidden: true,
+                    },
+                    {
+                        type: NavBarMenuItemTypes.Item,
+                        title: 'Data Sources',
+                        icon: <Export />,
+                        selectedIcon: <Export weight="fill" />,
+                        key: 'dataSources',
+                        link: '/data-sources',
+                        isHidden: !showDataSources,
                     },
                     {
                         type: NavBarMenuItemTypes.Item,
@@ -192,23 +219,19 @@ export const NavSidebar = () => {
                         icon: <TrendUp />,
                         selectedIcon: <TrendUp weight="fill" />,
                         key: 'analytics',
-                        isHidden: !showAnalytics,
-                        link: PageRoutes.ANALYTICS,
+                        link: '/analytics',
+                        isHidden: true,
+                    },
+                    {
+                        type: NavBarMenuItemTypes.Item,
+                        title: 'Structured Properties',
+                        icon: <TextColumns />,
+                        selectedIcon: <TextColumns weight="fill" />,
+                        key: 'structuredProperties',
+                        link: '/structured-properties',
+                        isHidden: true,
                     },
                 ],
-            },
-            {
-                type: NavBarMenuItemTypes.Custom,
-                key: 'spacer',
-                render: () => <Spacer />,
-            },
-            {
-                type: NavBarMenuItemTypes.Item,
-                title: 'Profile',
-                icon: <UserCircle />,
-                selectedIcon: <UserCircle weight="fill" />,
-                key: 'profile',
-                link: `/${entityRegistry.getPathName(EntityType.CorpUser)}/${userContext.urn}`,
             },
             {
                 type: NavBarMenuItemTypes.Item,

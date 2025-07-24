@@ -5,8 +5,6 @@ import styled from 'styled-components';
 import { useNavBarContext } from '@app/homeV2/layout/navBarRedesign/NavBarContext';
 import NavBarToggler from '@app/homeV2/layout/navBarRedesign/NavBarToggler';
 
-import DatahubCoreLogo from '@images/datahub_core.svg?react';
-
 const Container = styled.div`
     display: flex;
     width: 100%;
@@ -58,7 +56,6 @@ export default function NavBarHeader({ logotype }: Props) {
         <Container>
             <StyledLink to="/">
                 <Logotype>{logotype}</Logotype>
-                {!isCollapsed && <DatahubCoreLogo />}
             </StyledLink>
             {!isCollapsed && <NavBarToggler />}
         </Container>

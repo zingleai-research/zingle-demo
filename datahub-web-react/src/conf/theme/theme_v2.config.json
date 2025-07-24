@@ -28,10 +28,10 @@
         "highlight-border-color": "#07878180"
     },
     "assets": {
-        "logoUrl": "/assets/logo.png"
+        "logoUrl": "/logo192.png"
     },
     "content": {
-        "title": "DataHub",
+        "title": "Zingle",
         "homepage": {
             "homepageMessage": "Bring clarity to your data"
         },

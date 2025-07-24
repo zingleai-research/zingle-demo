@@ -15,7 +15,7 @@ export const UsersOnboardingConfig: OnboardingStep[] = [
         content: (
             <Typography.Paragraph>
                 <p>
-                    Welcome to DataHub <strong>Users</strong>!
+                    Welcome to Zingle <strong>Users</strong>!
                 </p>
                 <p>
                     There are a few different ways to onboard new <strong>Users</strong> onto DataHub.

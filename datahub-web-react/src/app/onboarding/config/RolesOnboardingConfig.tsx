@@ -12,7 +12,7 @@ export const RolesOnboardingConfig: OnboardingStep[] = [
         content: (
             <Typography.Paragraph>
                 <p>
-                    Welcome to DataHub <strong>Roles</strong>!
+                    Welcome to Zingle <strong>Roles</strong>!
                 </p>
                 <p>
                     <strong>Roles</strong> are the recommended way to manage permissions on DataHub.

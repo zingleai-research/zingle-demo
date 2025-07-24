@@ -14,6 +14,7 @@ export const HOME_PAGE_INSIGHTS_ID = 'home-page-insights';
 export const HOME_PAGE_PLATFORMS_ID = 'home-page-platforms';
 export const HOME_PAGE_MOST_POPULAR_ID = 'home-page-most-popular';
 export const HOME_PAGE_SEARCH_BAR_ID = 'home-page-search-bar';
+export const HOME_PAGE_ONBOARDING_CARDS_ID = 'home-page-onboarding-cards';
 
 export const HomePageOnboardingConfig: OnboardingStep[] = [
     {
@@ -27,9 +28,9 @@ export const HomePageOnboardingConfig: OnboardingStep[] = [
                     style={{ marginLeft: '50px' }}
                     src={dataHubFlowDiagram}
                 />
-                <Typography.Title level={3}>Welcome to DataHub Core! 👋</Typography.Title>
+                <Typography.Title level={3}>Welcome to Zingle! 👋</Typography.Title>
                 <Typography.Paragraph style={{ lineHeight: '22px' }}>
-                    <strong>DataHub</strong> helps you discover and organize the important data within your
+                    <strong>Zingle</strong> helps you discover and organize the important data within your
                     organization. You can:
                 </Typography.Paragraph>
                 <Typography.Paragraph style={{ lineHeight: '24px' }}>

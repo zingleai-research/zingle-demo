@@ -139,7 +139,7 @@ export const Feature = ({ key, title, description, settings, options, isNew, lea
                             <OptionTitle>
                                 <span>{option.title}</span>
                                 {!option.isAvailable && (
-                                    <Pill color="violet" size="sm" label="Only available on DataHub Cloud" />
+                                    <Pill color="violet" size="sm" label="Only available on Zingle Cloud" />
                                 )}
                             </OptionTitle>
                             <div>
@@ -182,11 +182,11 @@ export const Feature = ({ key, title, description, settings, options, isNew, lea
                     <span>
                         <OptionTitle>
                             <span>{option.title}</span>
-                            <Pill color="violet" size="sm" label="DataHub Cloud" />
+                            <Pill color="violet" size="sm" label="Zingle Cloud" />
                         </OptionTitle>
                     </span>
                     <Tooltip2
-                        title={option.isAvailable ? '' : 'Only available on DataHub Cloud'}
+                        title={option.isAvailable ? '' : 'Only available on Zingle Cloud'}
                         placement="left"
                         showArrow
                         mouseEnterDelay={0.1}

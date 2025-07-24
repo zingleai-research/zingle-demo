@@ -1,7 +1,12 @@
 {
-    "short_name": "DataHub",
-    "name": "DataHub",
+    "short_name": "Zingle",
+    "name": "Zingle",
     "icons": [
+        {
+            "src": "/assets/icons/favicon.svg",
+            "sizes": "32x32",
+            "type": "image/svg+xml"
+        },
         {
             "src": "/assets/icons/favicon.ico",
             "sizes": "64x64 32x32 24x24 16x16",
@@ -10,6 +15,6 @@
     ],
     "start_url": ".",
     "display": "standalone",
-    "theme_color": "#000000",
+    "theme_color": "#1890ff",
     "background_color": "#ffffff"
 }

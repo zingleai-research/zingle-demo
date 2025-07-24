@@ -143,7 +143,7 @@ export const Feature = ({ key, title, description, settings, options, isNew, lea
                             <OptionTitle>
                                 <span>{option.title}</span>
                                 {!option.isAvailable && (
-                                    <DataHubOnlyTag>Only available on DataHub Cloud</DataHubOnlyTag>
+                                    <DataHubOnlyTag>Only available on Zingle Cloud</DataHubOnlyTag>
                                 )}
                             </OptionTitle>
                             <div>
@@ -168,10 +168,10 @@ export const Feature = ({ key, title, description, settings, options, isNew, lea
                     <span>
                         <OptionTitle>
                             <span>{option.title}</span>
-                            <DataHubOnlyTag>Only available on DataHub Cloud</DataHubOnlyTag>
+                            <DataHubOnlyTag>Only available on Zingle Cloud</DataHubOnlyTag>
                         </OptionTitle>
                     </span>
-                    <Tooltip title={option.isAvailable ? '' : 'Only available on DataHub Cloud'}>
+                                            <Tooltip title={option.isAvailable ? '' : 'Only available on Zingle Cloud'}>
                         <Button onClick={option.onClick} disabled={!option.isAvailable}>
                             {option.buttonText}
                         </Button>

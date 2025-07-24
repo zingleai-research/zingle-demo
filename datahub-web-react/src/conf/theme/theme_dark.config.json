@@ -24,10 +24,10 @@
         "border-radius-navbar-redesign": "12px"
     },
     "assets": {
-        "logoUrl": "/assets/logo.png"
+        "logoUrl": "/logo192.png"
     },
     "content": {
-        "title": "DataHub",
+        "title": "Zingle",
         "homepage": {
             "homepageMessage": "Find data you can count(*) on"
         },

@@ -13,7 +13,7 @@ export const PoliciesOnboardingConfig: OnboardingStep[] = [
         content: (
             <Typography.Paragraph>
                 <p>
-                    Welcome to DataHub <strong>Policies</strong>!
+                    Welcome to Zingle <strong>Policies</strong>!
                 </p>
                 <p>
                     In most cases, <strong>Roles</strong> are the best option for granting privileges to DataHub users.

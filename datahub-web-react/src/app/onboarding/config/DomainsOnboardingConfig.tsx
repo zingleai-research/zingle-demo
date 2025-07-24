@@ -13,7 +13,7 @@ export const DomainsOnboardingConfig: OnboardingStep[] = [
         content: (
             <Typography.Paragraph>
                 <p>
-                    Welcome to DataHub <strong>Domains</strong>!
+                    Welcome to Zingle <strong>Domains</strong>!
                 </p>
                 <p>
                     <strong>Domains</strong> are collections of related data assets associated with a specific part of
